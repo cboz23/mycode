@@ -4,20 +4,22 @@ def suggest_food():
     # Food options for date night
     food_choices = [
         "Italian (Pasta, Pizza)",
-        "Japanese (Sushi, Ramen)",
+        "Japanese (Sushi, Ramen, Hibachi)",
         "Mexican (Tacos, Burritos)",
         "Mediterranean (Hummus, Kebabs, Shawarmas)",
         "Thai (Pad Thai, Curry)",
-        "Indian",
+        "Indian (Curry, Biriyani, Tandori",
         "Steakhouse",
-        "Seafood",
+        "Vietnamese (Pho, Bahn Mi, Com Ga)"
+        "Seafood (Crab, Shrimp, Lobster, Fish)",
         "Pizza",
+        "Chicken (Wings, Fried Chicken, Chicken Sandwiches)"
         "Vegetarian/Vegan",
         "Food from your favorite local restaurant",
     ]
 
     # Ask the user to select five choices
-    print("Choose five food options for your date night (enter numbers 1-11):")
+    print("Choose five food options for your date night (enter numbers 1-13):")
     for i, choice in enumerate(food_choices, start=1):
         print(f"{i}. {choice}")
 
@@ -28,7 +30,7 @@ def suggest_food():
             if 1 <= choice_number <= len(food_choices):
                 user_selection.add(food_choices[choice_number - 1])
             else:
-                print("Invalid choice. Please enter a number between 1 and 11.")
+                print("Invalid choice. Please enter a number between 1 and 13.")
         except ValueError:
             print("Invalid input. Please enter a number.")
 
