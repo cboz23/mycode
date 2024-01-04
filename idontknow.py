@@ -61,7 +61,7 @@ def suggest_food():
 
     if len(user_final_choices) == 2:
         final_choice = user_final_choices.pop()
-        print(f"\nI've decided! Enjoy your {final_choice} cuisine! If you're disappointed in my selection, then it seems you know what you really want!")
+        print(f"\nDinner has been decided! Enjoy some {final_choice} cuisine! If you're disappointed in my selection, then it seems you know what you really want!")
     else:
         print("You must select exactly two options. Exiting.")
 
