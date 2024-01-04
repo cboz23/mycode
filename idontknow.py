@@ -16,40 +16,54 @@ def suggest_food():
         "Food from your favorite local restaurant",
     ]
 
-    # Ask the user to select three choices
-    print("Choose three food options for your date night (enter numbers 1-11):")
+    # Ask the user to select five choices
+    print("Choose five food options for your date night (enter numbers 1-11):")
     for i, choice in enumerate(food_choices, start=1):
         print(f"{i}. {choice}")
 
     user_selection = set()
-    while len(user_selection) < 3:
+    while len(user_selection) < 5:
         try:
             choice_number = int(input("Enter the number of your choice: "))
             if 1 <= choice_number <= len(food_choices):
                 user_selection.add(food_choices[choice_number - 1])
             else:
-                print("Invalid choice. Please enter a number between 1 and 9.")
+                print("Invalid choice. Please enter a number between 1 and 11.")
         except ValueError:
             print("Invalid input. Please enter a number.")
 
-    # Randomly select two choices from the user's selection
-    random_choices = random.sample(user_selection, k=2)
+    if len(user_selection) != 5:
+        print("You must select exactly five options. Exiting.")
+        return
 
-    # Ask the user to choose one from the two random choices
-    print("\nYou selected these three options:")
+    # Randomly select three choices from the user's selection
+    random_choices = random.sample(list(user_selection), k=3)
+
+    # Ask the user to choose two from the three random choices
+    print("\nYou selected these five options:")
     for i, choice in enumerate(user_selection, start=1):
         print(f"{i}. {choice}")
 
-    print("\nNow, choose one from the following two options:")
+    print("\nNow, choose two from the following three options:")
     for i, choice in enumerate(random_choices, start=1):
         print(f"{i}. {choice}")
 
-    user_final_choice = int(input("Enter the number of your final choice: "))
-    if 1 <= user_final_choice <= 2:
-        print(f"\nGreat choice! Enjoy your {random_choices[user_final_choice - 1]} cuisine on your date night.")
+    user_final_choices = set()
+    while len(user_final_choices) < 2:
+        try:
+            choice_number = int(input("Enter the number of your final choices: "))
+            if 1 <= choice_number <= 3:
+                user_final_choices.add(random_choices[choice_number - 1])
+            else:
+                print("Invalid choice. Please enter a number between 1 and 3.")
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+
+    if len(user_final_choices) == 2:
+        final_choice = user_final_choices.pop()
+        print(f"\nI've decided! Enjoy your {final_choice} cuisine! If you're disappointed in my selection, then it seems you know what you really want!")
     else:
-        print("Invalid choice. Please enter 1 or 2.")
+        print("You must select exactly two options. Exiting.")
 
 if __name__ == "__main__":
     suggest_food()
-
