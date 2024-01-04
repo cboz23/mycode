@@ -1,41 +1,42 @@
 #!/usr/bin/env python3
 import html
 
-VG1trivia = {
-        "type":"multiple",
-        "difficulty":"easy",
-        "category":"Entertainment: Video Games",
-        "question":"League of Legends, DOTA 2, Smite and Heroes of the Storm are all part of which game genre?",
-        "correct_answer":"Multiplayer Online Battle Arena (MOBA)",
+trivia_questions = [
+    {
+        "type": "multiple",
+        "difficulty": "easy",
+        "category": "Entertainment: Video Games",
+        "question": "League of Legends, DOTA 2, Smite and Heroes of the Storm are all part of which game genre?",
+        "correct_answer": "Multiplayer Online Battle Arena (MOBA)",
         "incorrect_answers": [
-             "Real Time Strategy (RTS)",
-             "First Person Shooter (FPS)",
-             "Role Playing Game (RPG)"
+            "Real Time Strategy (RTS)",
+            "First Person Shooter (FPS)",
+            "Role Playing Game (RPG)"
         ]
     },
-VG2trivia = {
-        "type":"boolean",
-        "difficulty":"medium",
-        "category":"Entertainment: Video Games",
-        "question":"Pistons were added to Minecraft in Beta 1.5.",
-        "correct_answer":"False",
-        "incorrect_answers":[
-             "True"
+    {
+        "type": "boolean",
+        "difficulty": "medium",
+        "category": "Entertainment: Video Games",
+        "question": "Pistons were added to Minecraft in Beta 1.5.",
+        "correct_answer": "False",
+        "incorrect_answers": [
+            "True"
         ]
     },
-VG3trivia = {
-        "type":"multiple",
-        "difficulty":"medium",
-        "category":"Entertainment: Video Games",
-        "question":"Which horror movie had a sequel in the form of a video game released in August 20, 2002?",
-        "correct_answer":"The Thing",
-        "incorrect_answers":[
+    {
+        "type": "multiple",
+        "difficulty": "medium",
+        "category": "Entertainment: Video Games",
+        "question": "Which horror movie had a sequel in the form of a video game released in August 20, 2002?",
+        "correct_answer": "The Thing",
+        "incorrect_answers": [
             "The Evil Dead",
             "Saw",
             "Alien"
         ]
     },
-VG4trivia = {
+    {
         "type":"multiple",
         "difficulty":"hard",
         "category":"Entertainment: Books",
@@ -46,7 +47,7 @@ VG4trivia = {
             "Paul Lafargue"
         ]
     },
-VG5trivia = {
+    {
         "type":"multiple",
         "difficulty":"medium",
         "category":"History",
@@ -58,7 +59,7 @@ VG5trivia = {
             "France"
         ]
     },
-VG6trivia = {
+    {
         "type":"multiple",
         "difficulty":"medium",
         "category":"Entertainment: Video Games",
@@ -70,7 +71,7 @@ VG6trivia = {
             "SCV"
         ]
     },
-VG7trivia = {
+    {
         "type":"multiple",
         "difficulty":"medium",
         "category":"Entertainment: Comics",
@@ -82,7 +83,7 @@ VG7trivia = {
             "Earth-2008"
         ]
     },
-VG8trivia = {
+    {
         "type":"boolean",
         "difficulty":"easy",
         "category":"Mythology",
@@ -92,7 +93,7 @@ VG8trivia = {
             "False"
         ]
     },
-VG9trivia = {
+    {
         "type":"multiple",
         "difficulty":"hard",
         "category":"Politics",
@@ -104,7 +105,7 @@ VG9trivia = {
             "B"
         ]
     },
-VG10trivia = {
+    {
         "type":"multiple",
         "difficulty":"easy",
         "category":"Entertainment: Video Games",
@@ -115,26 +116,42 @@ VG10trivia = {
             "Kirby&#039;s Dream Land 2",
             "Kirby&#039;s Dream Land"
         ]
-    }
+    },
+    # Add more questions as needed
+]
 
-def main():
-    question = html.unescape(trivia["question"])
-    correct = html.unescape(trivia["correct_answer"])
-    incorrect1 = html.unescape(trivia["incorrect_answers"][0])
-    incorrect2 = html.unescape(trivia["incorrect_answers"][1])
-    incorrect3 = html.unescape(trivia["incorrect_answers"][2])
+def display_question(question):
+    question_text = html.unescape(question["question"])
+    correct_answer = html.unescape(question["correct_answer"])
+    incorrect_answers = [html.unescape(ans) for ans in question["incorrect_answers"]]
 
-    print(question)
-    print("A) " + correct)
-    print("B) " + incorrect1)
-    print("C) " + incorrect2)
-    print("D) " + incorrect3)
+    print(question_text)
+
+    options = {"A": correct_answer}
+    options.update({chr(ord('A') + i): incorrect_answers[i] for i in range(len(incorrect_answers))})
+
+    for option, answer in options.items():
+        print(f"{option}) {answer}")
+
     user_answer = input("Enter the letter corresponding to your answer: ").upper()
 
-    if user_answer == "A":
-        print("Correct! " + correct)
+    if user_answer in options and options[user_answer] == correct_answer:
+        print("Correct! " + correct_answer)
     else:
-        print("Incorrect. The correct answer is A) " + correct)
+        print(f"Incorrect. The correct answer is A) {correct_answer}")
+
+
+def main():
+    print("Welcome to the Trivia Game!")
+    print("Press Ctrl+C to exit.")
+
+    try:
+        for question in trivia_questions:
+            display_question(question)
+            print("\n" + "=" * 30 + "\n")  # Add a separator between questions
+
+    except KeyboardInterrupt:
+        print("\nExiting Trivia Game.")
 
 if __name__ == "__main__":
     main()
