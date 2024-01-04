@@ -138,7 +138,8 @@ def display_question(question):
     if user_answer in options and options[user_answer] == correct_answer:
         print("Correct! " + correct_answer)
     else:
-        print(f"Incorrect. The correct answer is A) {correct_answer}")
+        print(f"Incorrect. The correct answer is {correct_answer}")
+
 
 
 def main():
