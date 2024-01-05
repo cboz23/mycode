@@ -8,12 +8,12 @@ def suggest_food():
         "Mexican (Tacos, Burritos)",
         "Mediterranean (Hummus, Kebabs, Shawarmas)",
         "Thai (Pad Thai, Curry)",
-        "Indian (Curry, Biriyani, Tandori",
+        "Indian (Curry, Biriyani, Tandori)",
         "Steakhouse",
-        "Vietnamese (Pho, Bahn Mi, Com Ga)"
+        "Vietnamese (Pho, Bahn Mi, Com Ga)",
         "Seafood (Crab, Shrimp, Lobster, Fish)",
         "Pizza",
-        "Chicken (Wings, Fried Chicken, Chicken Sandwiches)"
+        "Chicken (Wings, Fried Chicken, Chicken Sandwiches)",
         "Vegetarian/Vegan",
         "Food from your favorite local restaurant",
     ]
@@ -63,7 +63,7 @@ def suggest_food():
 
     if len(user_final_choices) == 2:
         final_choice = user_final_choices.pop()
-        print(f"\nDinner has been decided! Enjoy some {final_choice} cuisine! If you're disappointed in my selection, then it seems you know what you really want!")
+        print(f"\nDinner has been decided! Enjoy some {final_choice} cuisine! If you're disappointed in the selection, then it seems you know what you really want!")
     else:
         print("You must select exactly two options. Exiting.")
 
