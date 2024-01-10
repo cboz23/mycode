@@ -1,0 +1,19 @@
+Italian (Pasta, Pizza, Lasagna)
+Japanese (Sushi, Ramen, Hibachi)
+Mexican (Tacos, Burritos)
+Arabic/Mediterranean (Hummus, Kebabs, Shawarmas)
+Thai (Pad Thai, Curry)
+Indian (Curry, Biriyani, Tandoori)
+Chinese (Fried Rice, Chow Mein, Dim Sum)
+Steakhouse
+Korean (KBBQ, Bugogi, Bimimbap)
+Smoked BBQ (Brisket, Ribs, Chicken, Pork) 
+Vietnamese (Pho, Bahn Mi, Com Ga)
+Seafood (Crab, Shrimp, Lobster, Fish)
+Filipino (Adobo, Sinigang, Pancit)
+Chicken (Wings, Fried Chicken, Chicken Sandwiches)
+Vegetarian/Vegan
+Hamburgers
+German (Sauerbraten, Schnitzel, Currywurst)
+Food from your favorite local restaurant
+
