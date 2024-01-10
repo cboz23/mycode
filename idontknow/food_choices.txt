@@ -1,8 +1,11 @@
 Italian (Pasta, Pizza, Lasagna)
+Caribbean (Jerk dish, Akee and Saltfish, Goat Stew) 
 Japanese (Sushi, Ramen, Hibachi)
 Mexican (Tacos, Burritos)
 Arabic/Mediterranean (Hummus, Kebabs, Shawarmas)
+South American (Asado, Empanadas, Arepas)
 Thai (Pad Thai, Curry)
+Cajun (Boil, Jambalaya, Gumbo)
 Indian (Curry, Biriyani, Tandoori)
 Chinese (Fried Rice, Chow Mein, Dim Sum)
 Steakhouse
@@ -16,4 +19,3 @@ Vegetarian/Vegan
 Hamburgers
 German (Sauerbraten, Schnitzel, Currywurst)
 Food from your favorite local restaurant
-
