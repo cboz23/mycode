@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia App</title>
+</head>
+<body>
+    <h1>Trivia App</h1>
+    <form method="post">
+        <label for="amount">Number of Questions:</label>
+        <input type="number" name="amount" required>
+        <br>
+        <label for="category">Category:</label>
+        <select name="category" required>
+            {% for num, name in categories.items() %}
+                <option value="{{ num }}">{{ name }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label for="difficulty">Difficulty:</label>
+        <select name="difficulty" required>
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+        </select>
+        <br>
+        <label for="q_type">Question Type:</label>
+        <select name="q_type" required>
+            <option value="multiple">Multiple Choice</option>
+            <option value="boolean">True/False</option>
+        </select>
+        <br>
+        <button type="submit">Get Questions</button>
+    </form>
+
+    {% if questions %}
+        <h2>Questions:</h2>
+        {% for question_data in questions %}
+            <p>{{ question_data['question'] }}</p>
+            <ul>
+                {% for answer in question_data['answers'] %}
+                    <li>{{ answer }}</li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>
+
