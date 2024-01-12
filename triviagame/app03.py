@@ -15,6 +15,7 @@ def build_url(amount, category, difficulty, q_type):
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+
     categories = {
         9: "General Knowledge",
         10: "Entertainment- Books",
@@ -43,11 +44,9 @@ def index():
     }
 
     questions = []
+    correct_answers = {}
 
     if request.method == 'POST':
-        print("Received POST request")
-        print("Form data:", request.form)
-
         amount = request.form['amount']
         category = request.form['category']
         difficulty = request.form['difficulty']
@@ -70,27 +69,17 @@ def index():
                     'index': index,
                     'question': question,
                     'answers': all_answers,
-                    'correct_answer': correct_answer
                 })
 
-            user_answers = []
-            for question_data in questions:
-                index = question_data['index']
-                selected_answers = request.form.getlist(f'answer_{index}[]')
-                user_answers.extend(selected_answers)
+                correct_answers[index] = correct_answer
+            
+            print(f"Questions: {questions}")
+            print(f"Correct Answers: {correct_answers}")
+        
+        return render_template('index03.html', questions=questions, categories=categories, correct_answers=correct_answers)
 
-                question_index_key = f'question_index_{index}[]'
-                if question_index_key in request.form:
-                    question_index_values = request.form.getlist(question_index_key)
-                    print(f"Question {index} - Selected indices: {question_index_}")
-
-                    if question_index_values:
-                        last_selected_index = question_index_values[-1]
-                        print(f"Last selected index for question {index}: {last_selected_index}")
-
-            print("User answers:", user_answers)
-
-    return render_template('index02.html', questions=questions, categories=categories)
-
+    return render_template('index03.html', categories=categories, correct_answers={})
+    
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=2224)
+
